@@ -1,0 +1,24 @@
+# .htaccess
+
+Empêcher l'accès direct aux fichiers de configuration et de sécurité
+
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "php/init.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "php/security.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+Empêcher l'accès direct au dossier vendor
+<Directory "vendor">
+    Order Allow,Deny
+    Deny from all
+</Directory>

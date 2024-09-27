@@ -1,23 +1,10 @@
 <?php
+/*SERVIRA de routeur pour notre application. 
+Il va analyser l'URL demandée par l'utilisateur et afficher la page correspondante.*/
+
 require_once 'vendor/autoload.php';
-
-$loader = new \Twig\Loader\FilesystemLoader('templates');
-$twig = new \Twig\Environment($loader);
-
-// Configuration de la base de données
-$dsn = 'mysql:host=localhost;ArcadiaFinal';
-$username = 'root';
-$password = '';
-$options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-];
-
-try {
-    $pdo = new PDO($dsn, $username, $password, $options);
-} catch (PDOException $e) {
-    die('Erreur de connexion : ' . $e->getMessage());
-}
+require_once './php/init.php';
+require_once './php/security.php';
 
 // Routeur simple
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

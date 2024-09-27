@@ -1,3 +1,6 @@
+{# Ce fichier est le template pour la page d'erreur 404 (page non trouvée). 
+Il étend également base.html.twig et remplit les blocs définis dans le template de base. #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Page non trouvée{% endblock %}
@@ -5,4 +8,6 @@
 {% block content %}
     <h2>404 - Page non trouvée</h2>
     <p>La page que vous cherchez n'existe pas.</p>
+    <p>Veuillez, cliquer ici pour retourner à l'accueil</p>
+    <a href="{{ path('accueil') }}">Retour à l'accueil</a>
 {% endblock %}
